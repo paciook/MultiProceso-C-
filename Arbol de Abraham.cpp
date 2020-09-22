@@ -9,13 +9,10 @@ int main()
 {
 	int pid;
 	string name;
-
 	cout << "Hola soy " << name << endl;
-
+	
 	pid = fork();
-
-	if (pid == 0)
-	{
+	if (pid == 0){
 		// Lo que hace el Homero
 		name = "Homero";
 
@@ -23,32 +20,24 @@ int main()
 
 		pid = fork();
 
-		if (pid == 0)
-		{
+		if (pid == 0){
 			// Lo que hace Bart
 			name = "Bart";
 			cout << "Hola soy " << name << endl;
-		}
-		else
-		{
+		}else{
 		    wait(NULL);
 			// Lo que hace Homero
 			pid = fork();
-			if (pid == 0)
-			{
+			if (pid == 0){
 				// Lo que hace Lisa
 				name = "Lisa";
 				cout << "Hola soy " << name << endl;
-			}
-			else
-			{
+			}else{
 			    wait(NULL);
 			}
 			
 		}
-	}
-	else
-	{
+	}else{
 		// Lo que hace el Abraham
 		wait(NULL);
 		name = "Abraham";
